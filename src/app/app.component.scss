@@ -1,0 +1,37 @@
+.container-fluid {
+  vertical-align: middle;
+}
+
+.container {
+  padding: 30px 0;
+  color: #1e1d1d;
+}
+
+footer {
+  text-align: center;
+  color: #eeebeb;
+}
+
+nav a {
+  color: #eeebeb;
+}
+
+footer, nav {
+  background-color: #2E2E2E;
+}
+
+.navbar {
+  padding: 5px 10px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+  color: #00BFFF;
+}
+
+span {
+  padding: 0 0 0 15px;
+}
