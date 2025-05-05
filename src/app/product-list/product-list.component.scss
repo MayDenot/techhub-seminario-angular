@@ -1,5 +1,5 @@
 .clearance {
-  border: 2px solid #06a506;
+  border: 2px solid #06a506 !important;
 }
 
 .icon-clearance {
@@ -9,7 +9,7 @@
   font-weight: bold;
 }
 
-table thead th, tbody td{
+table thead th, tbody td {
   background-color: #eceaea;
 }
 
@@ -19,6 +19,7 @@ thead th, tbody td {
 
 tbody tr {
   height: 100px;
+  border-bottom: 1px solid #747373;
 }
 
 th, td {
@@ -33,4 +34,8 @@ th, td {
   max-width: 100%;
   max-height: 80px;
   object-fit: cover;
+}
+
+td.text-wrap {
+  width: 14rem;
 }

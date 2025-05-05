@@ -6,6 +6,7 @@
         <th>Nombre</th>
         <th>Precio</th>
         <th>Stock</th>
+        <th>Cantidad</th>
         <th class="end">Compra</th>
       </tr>
     </thead>
@@ -17,24 +18,30 @@
               <img class="image-product img-thumbnail" [src]="product.image" [alt]="product.name">
             </div>
           </td>
-            <td>{{product.name}}</td>
+            <td class="text-wrap">{{product.name}}</td>
             <td>{{product.price | currency}}</td>
             @if (product.stock > 0) {
               <td>{{product.stock}}</td>
             } @else {
               <td><span class="badge text-bg-warning">Sin stock</span></td>
             }
-            <td class="position-relative">
-              @if (product.stock != 0) {
+            @if (product.stock != 0) {
+              <td>
                 <app-input-integer [(amount)]="product.amount" [max]="product.stock" (maxReached)="maxReached($event)"></app-input-integer>
-              }
-              @if (product.clearance) {
-                <span class="icon-clearance position-absolute top-0 start-100 translate-middle rounded-circle text-white">
-                %
-                <span class="visually-hidden">clearance</span>
-              </span>
-              }
-            </td>
+              </td>
+              <td class="position-relative">
+                <button class="btn btn-primary" (click)="addToCart(product)">Comprar</button>
+                @if (product.clearance) {
+                  <span class="icon-clearance position-absolute top-0 start-100 translate-middle rounded-circle text-white">
+                    %
+                    <span class="visually-hidden">clearance</span>
+                  </span>
+                }
+              </td>
+            } @else {
+              <td></td>
+              <td></td>
+            }
         </tr>
       } @empty {
         <tr>

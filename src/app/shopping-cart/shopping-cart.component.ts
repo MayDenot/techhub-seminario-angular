@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../product-list/Product';
+import {ProductsCartService} from '../products-cart.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -8,14 +10,10 @@ import { Product } from '../product-list/Product';
   styleUrl: './shopping-cart.component.scss'
 })
 export class ShoppingCartComponent {
-  productsInCart: Product[] = [
-    {
-      name: 'Teclado Redragon Kumara K552',
-      price: 10000,
-      stock: 15,
-      image: 'tecladokumara.jpeg',
-      clearance: false,
-      amount: 0,
-    },
-  ]
+  cartList$: Observable<Product[]>;
+
+  constructor(private cart: ProductsCartService) {
+    this.cartList$ = cart.cartList.asObservable();
+  }
+
 }
