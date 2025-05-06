@@ -11,9 +11,14 @@ import {Observable} from 'rxjs';
 })
 export class ShoppingCartComponent {
   cartList$: Observable<Product[]>;
+  count: number = 0;
+
+  ngOnInit() {
+    this.cartList$.subscribe(cart => this.count = cart.length);
+    console.log(this.count);
+  }
 
   constructor(private cart: ProductsCartService) {
     this.cartList$ = cart.cartList.asObservable();
   }
-
 }
