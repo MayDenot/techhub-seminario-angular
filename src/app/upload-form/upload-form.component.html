@@ -1,0 +1,46 @@
+<form class="row" [formGroup]="formUpload" (submit)="onSubmit()">
+  <h5>Cargar productos</h5>
+  <div class="control col-md-6">
+    <label class="visually-hidden" for="image">Imagen</label>
+    <input type="text" class="form-control" id="image" placeholder="Imagen" formControlName="image">
+  </div>
+  <div class="control col-md-6" [class.invalid]="formUpload.get('name')?.invalid">
+    <label class="visually-hidden" for="name">Nombre</label>
+    <input type="text" class="form-control required" id="name" placeholder="Nombre" formControlName="name">
+    @if (formUpload.get('name')?.touched && formUpload.get('name')?.errors?.['required']) {
+      <div class="error-message">
+        <p>El nombre es requerido</p>
+      </div>
+    }
+  </div>
+  <div class="control col-6" [class.invalid]="formUpload.get('price')?.invalid">
+    <label class="visually-hidden" for="price">Precio</label>
+    <input type="number" class="form-control required" id="price" placeholder="Precio" formControlName="price">
+    @if (formUpload.get('price')?.touched && formUpload.get('price')?.errors?.['required']) {
+      <div class="error-message">
+        <p>El precio es requerido</p>
+      </div>
+    }
+  </div>
+  <div class="control col-4" [class.invalid]="formUpload.get('stock')?.invalid">
+    <label class="visually-hidden" for="stock">Stock</label>
+    <input type="number" class="form-control required" id="stock" placeholder="Stock" formControlName="stock">
+    @if (formUpload.get('stock')?.touched && formUpload.get('stock')?.errors?.['required']) {
+      <div class="error-message">
+        <p>El stock es requerido</p>
+      </div>
+    }
+  </div>
+  <div class="control col-2">
+    <div class="form-check">
+      <label class="form-check-label" for="clearance">Descuento</label>
+      <input class="form-check-input" type="checkbox" id="clearance" formControlName="clearance">
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary" [disabled]="formUpload.invalid">Submit</button>
+    <!--@if (formUpload.valid) {
+      <p>Producto cargado exitosamente!!</p>
+    }-->
+  </div>
+</form>
