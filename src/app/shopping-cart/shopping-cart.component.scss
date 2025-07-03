@@ -21,6 +21,11 @@
   padding-left: 10px;
 }
 
-.not-products {
+li {
+  color: #333;
   list-style: none;
+
+  .card {
+    background: #e0e0e0;
+  }
 }

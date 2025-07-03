@@ -22,9 +22,11 @@ export class ProductListComponent {
   }
 
   addToCart(product: Product) {
-    this.cart.addToCart(product);
-    product.stock -= product.amount;
-    product.amount = 0;
+    if (product.amount != 0) {
+      this.cart.addToCart(product);
+      product.stock -= product.amount;
+      product.amount = 0;
+    }
   }
 
   maxReached(msj: string) {

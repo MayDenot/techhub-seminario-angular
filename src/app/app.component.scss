@@ -10,14 +10,19 @@
 footer {
   text-align: center;
   color: #eeebeb;
+  border-top: 1px solid #424242;
 }
 
 nav a {
   color: #eeebeb;
 }
 
+nav {
+   border-bottom: 1px solid #333333;
+}
+
 footer, nav {
-  background-color: #2E2E2E;
+  background-color: #424242;
 }
 
 .navbar {

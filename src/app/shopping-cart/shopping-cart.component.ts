@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { Product } from '../product-list/Product';
 import {ProductsCartService} from '../products-cart.service';
 import {Observable} from 'rxjs';
@@ -11,14 +11,12 @@ import {Observable} from 'rxjs';
 })
 export class ShoppingCartComponent {
   cartList$: Observable<Product[]>;
-  count: number = 0;
 
-  ngOnInit() {
-    this.cartList$.subscribe(cart => this.count = cart.length);
-    console.log(this.count);
+  constructor(private cartService: ProductsCartService) {
+    this.cartList$ = cartService.cart$;
   }
 
-  constructor(private cart: ProductsCartService) {
-    this.cartList$ = cart.cartList.asObservable();
+  removeProduct(productId: number): void {
+    this.cartService.removeFromCart(productId);
   }
 }

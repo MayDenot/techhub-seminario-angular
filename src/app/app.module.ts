@@ -5,11 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TechhubAboutComponent } from './techhub-about/techhub-about.component';
 import { TechhubProductsComponent } from './techhub-products/techhub-products.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
 import { provideHttpClient } from '@angular/common/http';
+import { UploadFormComponent } from './upload-form/upload-form.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,14 @@ import { provideHttpClient } from '@angular/common/http';
     ShoppingCartComponent,
     TechhubAboutComponent,
     TechhubProductsComponent,
-    InputIntegerComponent
+    InputIntegerComponent,
+    UploadFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideClientHydration(withEventReplay()),
