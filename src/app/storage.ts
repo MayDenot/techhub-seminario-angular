@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class StorageService {
-  private _isAvailable: boolean;
+  private readonly _isAvailable: boolean;
 
   constructor() {
     this._isAvailable = this._checkLocalStorage();

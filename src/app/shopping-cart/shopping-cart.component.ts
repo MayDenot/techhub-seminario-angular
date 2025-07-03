@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import { Product } from '../product-list/Product';
-import {ProductsCartService} from '../products-cart.service';
+import { ProductsCartService } from '../products-cart.service';
 import {Observable} from 'rxjs';
 
 @Component({
