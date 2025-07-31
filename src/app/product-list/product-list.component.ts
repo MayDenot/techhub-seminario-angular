@@ -18,7 +18,9 @@ export class ProductListComponent {
   }
 
   ngOnInit() {
-    this.productsDataService.getAll().subscribe(products => this.products = products);
+    this.productsDataService.products$.subscribe((products) => {
+      this.products = products;
+    });
   }
 
   addToCart(product: Product) {

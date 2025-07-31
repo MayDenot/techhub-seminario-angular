@@ -11,6 +11,8 @@ const URL = 'https://666af3047013419182d1998a.mockapi.io/api/products';
 export class ProductsDataService {
   private products = new BehaviorSubject<Product[]>([]);
   private loadingSubject = new BehaviorSubject<boolean>(false);
+  products$ = this.products.asObservable();
+  loadingSubject$ = this.loadingSubject.asObservable();
 
   constructor(private http: HttpClient) {
     this.loadProducts();
